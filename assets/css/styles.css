@@ -9,7 +9,7 @@
 :root {
 	--clr-bg-main: #0e204a;
 	--clr-bg-main-dark: hsla(0, 2%, 11%, 0.45);
-	--clr-bg-main-light: #0c1b3f33;
+	--clr-bg-main-light: hsla(222, 68%, 15%, 0.3);
 	--clr-secondary: #03a4da;
 	--clr-hover: #868282;
 	--clr-white: #e4e4e4;
@@ -68,9 +68,10 @@ li {
 
 /* ========== Header ========== */
 header {
-	height: 10vh;
+	height: 65px;
+	padding-inline: 5rem;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	background-color: var(--clr-bg-main);
 }
@@ -81,9 +82,9 @@ header {
 	align-items: center;
 }
 
-.logo-container img {
+/* .logo-container img {
 	width: 40px;
-}
+} */
 
 .logo-container a,
 .menu-item {
@@ -135,6 +136,7 @@ header {
 }
 .search-input input::placeholder {
 	color: var(--clr-white);
+	font-size: 12px;
 }
 
 .search-buttons {
@@ -156,6 +158,7 @@ main {
 
 .socials-container {
 	width: 5vw;
+	min-width: 55px;
 	background-color: var(--clr-bg-main-dark);
 }
 
@@ -190,10 +193,13 @@ main {
 	font-size: 64px;
 }
 
-.main-section p {
+.home-info {
 	width: 35ch;
 	/* color: #eac350; */
 	color: var(--clr-white);
+	background-color: var(--clr-bg-main-dark);
+	padding: 1rem;
+	border-radius: 10px;
 }
 
 .main-section .booking-btn {
@@ -204,4 +210,106 @@ main {
 .main-section .booking-btn:hover,
 .main-section .booking-btn:focus {
 	background-color: var(--clr-bg-main);
+}
+
+/* ========== About Section ========== */
+
+.main-section .about-info {
+	max-width: 100ch;
+	color: var(--clr-white);
+	background-color: var(--clr-bg-main-dark);
+	padding: 1rem;
+	border-radius: 10px;
+}
+
+.our-team {
+	display: flex;
+	gap: 2rem;
+}
+
+.our-team h3 {
+	font-size: 52px;
+}
+
+.team-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--clr-bg-main-dark);
+	padding: 1.5rem;
+	border-radius: 10px;
+	gap: 1rem;
+	width: 25%;
+}
+
+.team-card img {
+	width: 70px;
+	height: 90px;
+	border: 1px solid white;
+	border-radius: 100%;
+}
+
+.badge {
+	font-size: 16px;
+	background-color: var(--clr-bg-main);
+	padding: 0.5rem 1.5rem;
+	border-radius: 5px;
+}
+/* ========== Contact ========== */
+.main-section.contact {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.form-containter {
+	background-color: var(--clr-bg-main-dark);
+	width: 50%;
+	padding: 3rem;
+	border-radius: 10px;
+}
+
+.form-containter form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.form-containter form label {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.form-containter form input,
+.form-containter form textarea {
+	margin-bottom: 1.5rem;
+	background-color: transparent;
+	border-radius: 5px;
+	border: 1px solid white;
+	padding: 0.5rem;
+}
+
+.form-containter form input::placeholder,
+.form-containter form textarea::placeholder {
+	color: white;
+}
+
+.form-containter form textarea {
+	min-height: 80px;
+}
+
+.form-containter form .btn {
+	padding-block: 0.75rem;
+}
+
+@media screen and (max-width: 900px) {
+	/* ========== About Section ========== */
+	.our-team {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.team-card {
+		width: 50%;
+	}
 }

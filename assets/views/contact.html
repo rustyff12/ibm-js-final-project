@@ -28,7 +28,8 @@
 			<div class="logo-container">
 				<img
 					src="../images/airliner-svgrepo-com.svg"
-					alt="Company logo of an airplane" />
+					alt="Company logo of an airplane"
+					style="width: 40px" />
 				<a href="../../index.html">Travel Bloom</a>
 			</div>
 			<nav class="menu">
@@ -44,17 +45,6 @@
 					</li>
 				</ul>
 			</nav>
-			<div class="search-container">
-				<form class="search-input">
-					<input
-						type="text"
-						placeholder="Enter a destination or keyword" />
-					<div class="search-buttons">
-						<button class="btn">Search</button>
-						<button class="btn danger">Clear</button>
-					</div>
-				</form>
-			</div>
 		</header>
 
 		<!-- Main content -->
@@ -95,8 +85,29 @@
 					</li>
 				</ul>
 			</div>
-			<section class="main-section">
+			<section class="main-section contact">
 				<h1>Contact</h1>
+				<div class="form-containter">
+					<form>
+						<label for="name">Name</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							placeholder="Enter your name" />
+
+						<label for="email">Email</label>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							placeholder="Enter your email" />
+
+						<label for="name">Name</label>
+						<textarea placeholder="Enter your message"> </textarea>
+						<button class="btn">Submit</button>
+					</form>
+				</div>
 			</section>
 		</main>
 		<script src="../js/index.js"></script>
