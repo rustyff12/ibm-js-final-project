@@ -51,10 +51,13 @@
 				<form class="search-input">
 					<input
 						type="text"
-						placeholder="Enter a destination or keyword" />
+						placeholder="Enter a destination or keyword"
+						name="search-field"
+						id="search-field"
+						value="" />
 					<div class="search-buttons">
-						<button class="btn">Search</button>
-						<button class="btn danger">Clear</button>
+						<button id="search" class="btn">Search</button>
+						<button id="clear" class="btn danger">Clear</button>
 					</div>
 				</form>
 			</div>
@@ -98,19 +101,22 @@
 					</li>
 				</ul>
 			</div>
-			<section class="main-section">
-				<h1>
-					EXPLORE <br />
-					DREAM <br />
-					DESTINATION <br />
-				</h1>
-				<p class="home-info">
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-					Corporis doloribus quia quasi iure, itaque sequi sit. In
-					praesentium impedit illo eaque aspernatur velit pariatur
-					minus.
-				</p>
-				<button class="booking-btn btn">Book Now</button>
+			<section class="main-section home">
+				<div class="home-left">
+					<h1>
+						EXPLORE <br />
+						DREAM <br />
+						DESTINATION <br />
+					</h1>
+					<p class="home-info">
+						Lorem, ipsum dolor sit amet consectetur adipisicing
+						elit. Corporis doloribus quia quasi iure, itaque sequi
+						sit. In praesentium impedit illo eaque aspernatur velit
+						pariatur minus.
+					</p>
+					<button class="booking-btn btn">Book Now</button>
+				</div>
+				<div class="results-container"></div>
 			</section>
 		</main>
 		<script src="./assets/js/index.js"></script>
