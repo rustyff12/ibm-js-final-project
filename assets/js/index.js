@@ -12,7 +12,8 @@ searchBtn.addEventListener("click", async (e) => {
 	} else {
 		const data = await getData();
 		if (data) {
-			processSearch(searchParam, data);
+			const results = processSearch(searchParam, data);
+			updateUi(results);
 		}
 	}
 	// console.log(searchParam);
@@ -86,5 +87,31 @@ function processSearch(location, data) {
 		return;
 	}
 
-	console.log("Search results: ", JSON.stringify(results));
+	return results;
 }
+
+function updateUi(locationData) {
+	// console.log(JSON.stringify(locationData[0]["places"][0]));
+	// console.log(JSON.stringify(locationData[0]["places"][1]));
+	const name1 = JSON.stringify(locationData[0]["places"][0]["name"]);
+	const name2 = JSON.stringify(locationData[0]["places"][1]["name"]);
+
+	const img1 = JSON.stringify(locationData[0]["places"][0]["imageUrl"]);
+	const img2 = JSON.stringify(locationData[0]["places"][1]["imageUrl"]);
+
+	const description1 = JSON.stringify(
+		locationData[0]["places"][0]["description"]
+	);
+	const description2 = JSON.stringify(
+		locationData[0]["places"][1]["description"]
+	);
+
+	const resContainer = document.querySelector(".results-container");
+}
+
+// console.log(name1);
+// console.log(name2);
+// console.log(img1);
+// console.log(img2);
+// console.log(description1);
+// console.log(description2);
