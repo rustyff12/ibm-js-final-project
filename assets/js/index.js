@@ -16,7 +16,6 @@ searchBtn.addEventListener("click", async (e) => {
 			updateUi(results);
 		}
 	}
-	// console.log(searchParam);
 });
 
 clearBtn.addEventListener("click", () => {
@@ -24,7 +23,6 @@ clearBtn.addEventListener("click", () => {
 	const searchField = document.querySelector("#search-field");
 
 	searchField.value = "";
-	// console.log(searchField.value);
 });
 
 async function getData() {
@@ -36,7 +34,7 @@ async function getData() {
 			throw new Error(`HTTP error! status: ${res.status}`);
 		}
 		const data = await res.json();
-		// console.log(data);
+
 		return data;
 	} catch (error) {
 		console.error("Failed to fetch data:", error);
@@ -59,8 +57,7 @@ function processSearch(location, data) {
 	if (matchCountry) {
 		results.push({
 			type: "Country",
-			name: matchCountry.name,
-			cities: matchCountry.cities,
+			places: matchCountry.cities,
 		});
 	}
 
@@ -86,32 +83,41 @@ function processSearch(location, data) {
 		alert(`No matches found for "${location}".`);
 		return;
 	}
-
+	console.log(results);
 	return results;
 }
 
 function updateUi(locationData) {
-	// console.log(JSON.stringify(locationData[0]["places"][0]));
-	// console.log(JSON.stringify(locationData[0]["places"][1]));
-	const name1 = JSON.stringify(locationData[0]["places"][0]["name"]);
-	const name2 = JSON.stringify(locationData[0]["places"][1]["name"]);
-
-	const img1 = JSON.stringify(locationData[0]["places"][0]["imageUrl"]);
-	const img2 = JSON.stringify(locationData[0]["places"][1]["imageUrl"]);
-
-	const description1 = JSON.stringify(
-		locationData[0]["places"][0]["description"]
-	);
-	const description2 = JSON.stringify(
-		locationData[0]["places"][1]["description"]
-	);
+	const places = locationData[0]["places"];
 
 	const resContainer = document.querySelector(".results-container");
-}
+	resContainer.innerHTML = "";
 
-// console.log(name1);
-// console.log(name2);
-// console.log(img1);
-// console.log(img2);
-// console.log(description1);
-// console.log(description2);
+	places.forEach((place) => {
+		const { name, imageUrl, description } = place;
+
+		const article = document.createElement("article");
+		article.classList.add("results-item");
+
+		const img = document.createElement("img");
+		img.src = imageUrl;
+		img.alt = `An image of ${name}`;
+
+		const h3 = document.createElement("h3");
+		h3.textContent = name;
+
+		const p = document.createElement("p");
+		p.textContent = description;
+
+		const button = document.createElement("button");
+		button.classList.add("btn");
+		button.textContent = "Visit";
+
+		article.appendChild(img);
+		article.appendChild(h3);
+		article.appendChild(p);
+		article.appendChild(button);
+
+		resContainer.appendChild(article);
+	});
+}
